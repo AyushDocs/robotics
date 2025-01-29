@@ -1,4 +1,4 @@
-FROM ros:humble
+FROM osrf/ros:humble-desktop
 
 RUN apt update && apt install -y \
     python3-pip \
