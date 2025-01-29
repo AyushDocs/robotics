@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+  ros2:
+    build: .
+    container_name: ros2_humble
+    volumes:
+      - ./ros2_ws:/ros2_ws
+    command: tail -f /dev/null  # Keep container running
