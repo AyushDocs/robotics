@@ -1,8 +1,10 @@
 version: '3.8'
+
 services:
-  ros2:
+  ros_app:
     build: .
-    container_name: ros2_humble
+    container_name: ros_container
     volumes:
-      - ./ros2_ws:/ros2_ws
-    command: tail -f /dev/null  # Keep container running
+      - D:\users\user\Desktop\robotics:/workspace
+    stdin_open: true
+    tty: true

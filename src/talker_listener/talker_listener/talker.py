@@ -1,6 +1,9 @@
+#!/usr/bin/env python3
+
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String
+
 
 class Talker(Node):
     def __init__(self):
@@ -12,18 +15,16 @@ class Talker(Node):
         msg = String()
         msg.data = 'Hello from ROS 2 Talker!'
         self.publisher_.publish(msg)
-        self.get_logger().info(f'Publishing: "{msg.data}"')
+        self.get_logger().info(f'Publishing: {msg.data}')
+
 
 def main(args=None):
     rclpy.init(args=args)
     node = Talker()
-    try:
-        rclpy.spin(node)
-    except KeyboardInterrupt:
-        pass
-    finally:
-        node.destroy_node()
-        rclpy.shutdown()
+    rclpy.spin(node)
+    node.destroy_node()
+    rclpy.shutdown()
+
 
 if __name__ == '__main__':
     main()
